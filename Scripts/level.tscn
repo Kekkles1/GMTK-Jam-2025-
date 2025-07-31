@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdy7n783awj2e"]
+
+[ext_resource type="PackedScene" uid="uid://do7q8oiubsm6v" path="res://Scripts/player.tscn" id="1_vyd10"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ljt3"]
+size = Vector2(345, 67)
+
+[node name="Level" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(262, 529)
+shape = SubResource("RectangleShape2D_6ljt3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 90.0
+offset_top = 492.0
+offset_right = 437.0
+offset_bottom = 560.0
+
+[node name="StaticBody2D" type="StaticBody2D" parent="StaticBody2D"]
+position = Vector2(616, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/StaticBody2D"]
+position = Vector2(262, 529)
+shape = SubResource("RectangleShape2D_6ljt3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/StaticBody2D"]
+offset_left = 90.0
+offset_top = 492.0
+offset_right = 437.0
+offset_bottom = 560.0
+
+[node name="Player" parent="." instance=ExtResource("1_vyd10")]
