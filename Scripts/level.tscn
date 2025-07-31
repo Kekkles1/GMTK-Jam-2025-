@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cdy7n783awj2e"]
 
-[ext_resource type="PackedScene" uid="uid://do7q8oiubsm6v" path="res://Scripts/player.tscn" id="1_vyd10"]
+[ext_resource type="PackedScene" uid="uid://blrhw8nwwb0by" path="res://Scripts/player.tscn" id="1_vyd10"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ljt3"]
 size = Vector2(345, 67)
@@ -33,3 +33,4 @@ offset_right = 437.0
 offset_bottom = 560.0
 
 [node name="Player" parent="." instance=ExtResource("1_vyd10")]
+position = Vector2(-64, 109)
