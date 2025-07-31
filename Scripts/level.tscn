@@ -35,5 +35,33 @@ offset_top = 492.0
 offset_right = 437.0
 offset_bottom = 560.0
 
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(283, -270)
+scale = Vector2(1.80678, 1.20668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(262, 529)
+shape = SubResource("RectangleShape2D_6ljt3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D3"]
+offset_left = 90.0
+offset_top = 492.0
+offset_right = 437.0
+offset_bottom = 560.0
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-472, -349)
+scale = Vector2(1.80678, 1.20668)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+position = Vector2(262, 529)
+shape = SubResource("RectangleShape2D_6ljt3")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D4"]
+offset_left = 90.0
+offset_top = 492.0
+offset_right = 437.0
+offset_bottom = 560.0
+
 [node name="Player" parent="." instance=ExtResource("1_vyd10")]
 position = Vector2(-64, 109)

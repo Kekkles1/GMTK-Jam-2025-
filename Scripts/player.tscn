@@ -266,4 +266,3 @@ shape = SubResource("CapsuleShape2D_d36ei")
 position = Vector2(332, 317)
 scale = Vector2(1.40625, 1.59375)
 sprite_frames = SubResource("SpriteFrames_xtsbm")
-animation = &"wall-jump"
