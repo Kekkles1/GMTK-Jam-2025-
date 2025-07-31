@@ -254,6 +254,10 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_uwfu8")
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(575, 322)
+position_smoothing_speed = 20.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(332, 324)
 shape = SubResource("CapsuleShape2D_d36ei")
@@ -262,3 +266,4 @@ shape = SubResource("CapsuleShape2D_d36ei")
 position = Vector2(332, 317)
 scale = Vector2(1.40625, 1.59375)
 sprite_frames = SubResource("SpriteFrames_xtsbm")
+animation = &"wall-jump"
