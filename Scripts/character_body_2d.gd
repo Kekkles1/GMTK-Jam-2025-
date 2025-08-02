@@ -9,14 +9,17 @@ const WALL_SPEED = 0
 const WALL_JUMP_FORCE = Vector2(250, -400)
 const JUMP_BUFFER = 0.2
 const COYOTE_TIMER = 0.1
+const AIR_SPIN = -200
 
 var wall_dir := 0  # -1 = left wall, 1 = right wall, 0 = none
 var jump_buffer_timer := 0.0
 var coyote_timer := 0.0
+var has_air_spin := false
 
 func _ready() -> void:
 	#makes camera current and follows player
 	cam.make_current()
+
 
 func _physics_process(delta: float) -> void:
 	var on_floor = is_on_floor()
@@ -24,6 +27,7 @@ func _physics_process(delta: float) -> void:
 
 	if on_floor:
 		coyote_timer = COYOTE_TIMER
+		has_air_spin = false
 
 	# detect wall
 	if on_wall and not on_floor:
@@ -41,7 +45,12 @@ func _physics_process(delta: float) -> void:
 	if not on_floor:
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("ui_accept"):
+#air spin
+	if Input.is_action_pressed("move_air_spin") and not on_floor and not has_air_spin:
+		velocity.y = AIR_SPIN
+		has_air_spin = true
+	
+	if Input.is_action_just_pressed("move_jump"):
 		jump_buffer_timer = JUMP_BUFFER
 
 	if jump_buffer_timer > 0:
@@ -55,8 +64,12 @@ func _physics_process(delta: float) -> void:
 			sprite.play("wall-jump")
 			jump_buffer_timer = 0
 
+#plays when you are falling
+	if Input.is_action_just_released("move_jump") and velocity.y < 0:
+		#tweak the number  maybe something else is better idk
+		velocity.y=JUMP_VELOCITY / 3
 
-	var direction := Input.get_axis("ui_left", "ui_right")
+	var direction := Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -67,6 +80,7 @@ func _physics_process(delta: float) -> void:
 	# Animation
 	if not on_floor:
 		sprite.play("jump")
+		sprite.flip_h = velocity. x < 0
 	elif velocity.x == 0:
 		sprite.play("default")
 	else:
