@@ -11,6 +11,6 @@ config_version=5
 [application]
 
 config/name="GMTK Jam"
-run/main_scene="uid://cdy7n783awj2e"
+run/main_scene="uid://c3513umvh3uvd"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
